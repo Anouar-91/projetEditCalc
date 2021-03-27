@@ -1,0 +1,52 @@
+
+#titre{
+	
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	padding: 30px;
+}
+
+button{
+	width: 150px;
+	height: 150px;
+	border-radius: 0ch;
+
+}
+
+.ligne{
+	margin-top: 50px;
+}
+
+.number{
+	width: 100px;
+	height: 100px;
+}
+
+#aleatoire{
+	background-color: #28cafc;
+	border-color: #28cafc;
+	font-size: 40px;
+}
+
+#manuel{
+	background-color: #ff6344;
+	border-color: #ff6344;
+	font-size: 40px;
+}
+
+#bulle{
+	width: 350px;
+	height: 350px;
+}
+
+a  {
+	text-decoration: none !important;  
+	color: white !important;
+}
+
+.ecran{
+	background-color: rgba(177, 216, 231, 0.781);
+	padding: 70px;
+	border: solid black 7px;
+}
