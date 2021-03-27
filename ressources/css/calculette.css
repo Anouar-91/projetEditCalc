@@ -8,8 +8,8 @@
 }
 
 .button-number{
-	width: 150px;
-	height: 150px;
+	width: 125px;
+	height: 125px;
 	border-radius: 0ch;
 
 }
@@ -24,12 +24,14 @@
 }
 
 #aleatoire{
+	padding: 40px;
 	background-color: #28cafc;
 	border-color: #28cafc;
 	font-size: 40px;
 }
 
 #manuel{
+	padding: 40px;
 	background-color: #ff6344;
 	border-color: #ff6344;
 	font-size: 40px;
