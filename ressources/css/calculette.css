@@ -7,7 +7,7 @@
 	padding: 30px;
 }
 
-button{
+.button-number{
 	width: 150px;
 	height: 150px;
 	border-radius: 0ch;
@@ -47,6 +47,7 @@ a  {
 
 .ecran{
 	background-color: rgba(177, 216, 231, 0.781);
-	padding: 70px;
+	padding: 50px;
 	border: solid black 7px;
+	
 }
