@@ -23,93 +23,99 @@
 		</div>
 
 		<div class="container ecran" id="ecran">
-
+			<div class="row">
+				<div class="col-3"></div>
+				<div class="col-2" id="operand1"></div>
+				<div class="col-2" id="operateur"></div>
+				<div class="col-2" id="operand2"></div>
+				<div class="col-3"></div>
+			</div>
 		</div>
 
 		<div class="container">
 			<div class="row ligne">
 				<div class="col-1"></div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">		
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">		
 					<button class="button-number">
-						<img src="img/number/0.png" alt="" id="zero" class="img img-responsive number" style="max-width: 100%;">
+						<img src="img/number/0.png" alt="" id="zero" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('0')" onclick="afficher2('0')">
 					</button>
 				</div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
 					<button class="button-number">
-						<img src="img/number/1.png" alt="" id="un" class="img img-responsive number" style="max-width: 100%;">
+						<img src="img/number/1.png" alt="" id="un" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('1')" onclick="afficher2('1')">
 					</button>
 				</div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
 					<button class="button-number">
-						<img src="img/number/2.png" alt="" id="deux" class="img img-responsive number" style="max-width: 100%;">
+						<img src="img/number/2.png" alt="" id="deux" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('2')" onclick="afficher2('2')">
 					</button>
 				</div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
 					<button class="button-number">
-						<img src="img/number/3.png" alt="" id="trois" class="img img-responsive number" style="max-width: 100%;">
+						<img src="img/number/3.png" alt="" id="trois" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('3')">
 					</button>
 				</div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
 					<button class="button-number">
-						<img src="img/symbole/egale.png" alt="" id="egale" class="img img-responsive number" style="max-width: 100%;">
-					</button>
-				</div>
-				<div class="col-1"></div>
-			</div>
-			<div class="row ligne">
-				<div class="col-1"></div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">		
-					<button class="button-number">
-						<img src="img/number/4.png" alt="" class="img img-responsive number" style="max-width: 100%;">
-					</button>
-				</div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/number/5.png" alt="" class="img img-responsive number" style="max-width: 100%;">
-					</button>
-				</div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/number/6.png" alt="" class="img img-responsive number" style="max-width: 100%;">
-					</button>
-				</div>
-		
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/number/7.png" alt="" class="img img-responsive number" style="max-width: 100%;">
-					</button>
-				</div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/symbole/gomme.png" alt="" class="img img-responsive number" style="max-width: 100%;">
+						<img src="img/symbole/egale.png" alt="" id="egale" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('10')"> 
 					</button>
 				</div>
 				<div class="col-1"></div>
 			</div>
 			<div class="row ligne">
 				<div class="col-1"></div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">		
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">		
 					<button class="button-number">
-						<img src="img/number/8.png" alt="" class="img img-responsive number" style="max-width: 100%;">
+						<img src="img/number/4.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('4')">
 					</button>
 				</div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
 					<button class="button-number">
-						<img src="img/number/9.png" alt="" class="img img-responsive number" style="max-width: 100%;">
+						<img src="img/number/5.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('5')">
 					</button>
 				</div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
 					<button class="button-number">
-						<img src="img/symbole/addition.png" alt="" class="img img-responsive number" style="max-width: 100%;">
+						<img src="img/number/6.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('6')">
 					</button>
 				</div>
 		
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
+					<button class="button-number">
+						<img src="img/number/7.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('7')">
+					</button>
+				</div>
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
+					<button class="button-number">
+						<img src="img/symbole/gomme.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="effacer()">
+					</button>
+				</div>
+				<div class="col-1"></div>
+			</div>
+			<div class="row ligne">
+				<div class="col-1"></div>
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">		
+					<button class="button-number">
+						<img src="img/number/8.png" alt="" class="img img-responsive number" style="max-width: 100%;"onclick="afficher('8')">
+					</button>
+				</div>
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
+					<button class="button-number">
+						<img src="img/number/9.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('9')">
+					</button>
+				</div>
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
+					<button class="button-number">
+						<img src="img/symbole/addition.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('12')">
+					</button>
+				</div>
+		
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
 					<button class="button-number"> 
-						<img src="img/symbole/soustraction.png" alt="" class="img img-responsive number" style="max-width: 100%;">
+						<img src="img/symbole/soustraction.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('13')">
 					</button>
 				</div>
-				<div class="col-2 wow bounce" data-wow-duration="3s" data-wow-delay="5">
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
 					<button class="button-number"> 
 						<img src="img/symbole/help.png" alt="" class="img img-responsive" style="max-width: 100%;">
 					</button>
@@ -133,6 +139,7 @@
 		<script async>
 				  new WOW().init();
 		</script>
-		<script type="text/javascript" src="ressources/js/calculette.js"></script>
+			<!--  		<script type="text/javascript" src="ressources/js/calculette.js"></script> -->
+		<script type="text/javascript" src="ressources/js/calculette2.js"></script>
 	</body>
 </html>
