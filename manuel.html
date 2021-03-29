@@ -24,40 +24,42 @@
 
 		<div class="container ecran" id="ecran">
 			<div class="row">
-				<div class="col-3"></div>
+				<div class="col-1"></div>
 				<div class="col-2" id="operand1"></div>
 				<div class="col-2" id="operateur"></div>
 				<div class="col-2" id="operand2"></div>
-				<div class="col-3"></div>
+				<div class="col-2" id="signeEgale"></div>
+				<div class="col-2" id="resultat"></div>
+				<div class="col-1"></div>
 			</div>
 		</div>
 
 		<div class="container">
 			<div class="row ligne">
 				<div class="col-1"></div>
-				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">		
-					<button class="button-number">
-						<img src="img/number/0.png" alt="" id="zero" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('0')" onclick="afficher2('0')">
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
+					<button class="button-number" id="0" onclick="afficher('0')">
+						<img src="img/number/0.png" alt="" id="zero" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/number/1.png" alt="" id="un" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('1')" onclick="afficher2('1')">
+					<button class="button-number" id="1" onclick="afficher('1')">
+						<img src="img/number/1.png" alt="" id="un" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/number/2.png" alt="" id="deux" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('2')" onclick="afficher2('2')">
+					<button class="button-number" id ="2" onclick="afficher('2')">
+						<img src="img/number/2.png" alt="" id="deux" class="img img-responsive number" style="max-width: 100%;">
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/number/3.png" alt="" id="trois" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('3')">
+					<button class="button-number" id="3" onclick="afficher('3')">
+						<img src="img/number/3.png" alt="" id="trois" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/symbole/egale.png" alt="" id="egale" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('10')"> 
+					<button class="button-number" id="=" onclick="afficher('10')">
+						<img src="img/symbole/cadenas.png" alt="" id="egale" class="img img-responsive number" style="max-width: 100%;" > 
 					</button>
 				</div>
 				<div class="col-1"></div>
@@ -65,29 +67,29 @@
 			<div class="row ligne">
 				<div class="col-1"></div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">		
-					<button class="button-number">
-						<img src="img/number/4.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('4')">
+					<button class="button-number" id="4" onclick="afficher('4')">
+						<img src="img/number/4.png" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/number/5.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('5')">
+					<button class="button-number" id="5" onclick="afficher('5')">
+						<img src="img/number/5.png" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/number/6.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('6')">
+					<button class="button-number" id ="6" onclick="afficher('6')">
+						<img src="img/number/6.png" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 		
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/number/7.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('7')">
+					<button class="button-number" id="7" onclick="afficher('7')">
+						<img src="img/number/7.png" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/symbole/gomme.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="effacer()">
+					<button class="button-number" id="gomme" onclick="effacer()">
+						<img src="img/symbole/gomme.png" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 				<div class="col-1"></div>
@@ -95,28 +97,28 @@
 			<div class="row ligne">
 				<div class="col-1"></div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">		
-					<button class="button-number">
-						<img src="img/number/8.png" alt="" class="img img-responsive number" style="max-width: 100%;"onclick="afficher('8')">
+					<button class="button-number" id="8" onclick="afficher('8')">
+						<img src="img/number/8.png" alt="" class="img img-responsive number" style="max-width: 100%;">
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/number/9.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('9')">
+					<button class="button-number" id="9" onclick="afficher('9')">
+						<img src="img/number/9.png" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number">
-						<img src="img/symbole/addition.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('12')">
+					<button class="button-number" id="+" onclick="afficher('12')">
+						<img src="img/symbole/cadenas.png" id="add" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 		
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number"> 
-						<img src="img/symbole/soustraction.png" alt="" class="img img-responsive number" style="max-width: 100%;" onclick="afficher('13')">
+					<button class="button-number" id="-" onclick="afficher('13')"> 
+						<img src="img/symbole/cadenas.png" id="sous" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number"> 
+					<button class="button-number" id="help"> 
 						<img src="img/symbole/help.png" alt="" class="img img-responsive" style="max-width: 100%;">
 					</button>
 				</div>
@@ -140,6 +142,6 @@
 				  new WOW().init();
 		</script>
 			<!--  		<script type="text/javascript" src="ressources/js/calculette.js"></script> -->
-		<script type="text/javascript" src="ressources/js/calculette2.js"></script>
+		<script type="text/javascript" src="ressources/js/calculette2.js" async></script>
 	</body>
 </html>

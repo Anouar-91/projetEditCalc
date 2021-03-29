@@ -1,9 +1,20 @@
-let operand1 = document.createElement('button');
+let operand1 = document.createElement('span');
 operand1.innerHTML = "";
-let operand2 = document.createElement('button');
+let operand2 = document.createElement('span');
 operand2.innerHTML = "";
-let operateur = document.createElement('button');
+let operateur = document.createElement('span');
 operateur.innerHTML = "";
+let signeEgale = document.createElement('span');
+signeEgale.innerHTML = "";
+let resultat = document.createElement('span');
+resultat.innerHTML = "";
+let boutonMoins = document.getElementById("-");
+let boutonsList = document.getElementsByTagName('button');
+let boutonEgal = document.getElementById("=");
+let boutonPlus = document.getElementById("+");
+boutonPlus.disabled = true;
+boutonMoins.disabled = true;
+boutonEgal.disabled = true;
 
 // tableau des images 
 var tab = ["<img src='img/number/0.png' class='img img-responsive' style='max-width: 100%; width:100px; height:100px; margin:0px'>", 
@@ -24,58 +35,173 @@ var tab = ["<img src='img/number/0.png' class='img img-responsive' style='max-wi
             ];
 
 function afficher(val){
-
-    console.log(tab[val]);
-
-    if(operand1.innerHTML == ""){
-        
-    operand1.innerHTML = tab[val];
-
-    $( "#operand1" ).append(operand1);
-    
+    if(operand1.innerHTML == ""){    
+        operand1.innerHTML = tab[val];
+        $( "#operand1" ).append(operand1);
+        boutonPlus.disabled = false;
+        boutonMoins.disabled = false;
+        boutonPlus.firstElementChild.setAttribute('src', 'img/symbole/addition.png')
+        boutonMoins.firstElementChild.setAttribute('src', 'img/symbole/soustraction.png');
+        for (var i = 0;i < boutonsList.length; i++) {
+            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help"){
+                boutonsList[i].disabled = true;
+                boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+            }
+        };
     }
-    else{
+    else {
         afficher2(val);
     }
-
+    
 }
 
 function afficher2(val){
-
-    console.log(tab[val]);
-
+    console.log("SAlt");
     if(operateur.innerHTML == ""){
-        
-    operateur.innerHTML = tab[val];
-
-    $( "#operateur" ).append(operateur);
-
+        operateur.innerHTML = tab[val];
+        $( "#operateur" ).append(operateur);
+        for (var i = 0;i < boutonsList.length; i++) {
+            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help"){
+                boutonsList[i].disabled = false;
+                boutonsList[i].firstElementChild.src = 'img/number/'+boutonsList[i].id.toString()+'.png';
+            }
+        };
+        boutonPlus.disabled = true;
+        boutonMoins.disabled = true;
+        boutonEgal.disabled = true;
+        boutonPlus.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png')
+        boutonMoins.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+        boutonEgal.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png')
+        checkOp(operand1.innerHTML.substr(21, 1), operateur.innerHTML.substr(22, 3));
     }
-    else{
+    else {
         afficher3(val);
     }
+    
+    
 }
 
 
 function afficher3(val){
 
     console.log(tab[val]);
-
     if(operand2.innerHTML == ""){
-        
-    operand2.innerHTML = tab[val];
-
-    $( "#operand2" ).append(operand2);
-
-    } 
+        operand2.innerHTML = tab[val];
+        $( "#operand2" ).append(operand2);
+        for (var i = 0;i < boutonsList.length; i++) {
+            if (boutonsList[i].id != "="){
+                boutonsList[i].disabled = true;
+                boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+            }
+        }
+        boutonEgal.disabled = false;
+        boutonEgal.firstElementChild.src = 'img/symbole/egale.png';
+    }
+    else {
+        afficher4(val);
+    };
+    
 }
+function afficher4(val){
+
+
+    if(signeEgale.innerHTML == ""){
+        signeEgale.innerHTML = tab[10];
+        $( "#signeEgale" ).append(signeEgale);
+        for (var i = 0;i < boutonsList.length; i++) {
+            if (boutonsList[i].id != "="){
+                boutonsList[i].disabled = false;
+                boutonsList[i].firstElementChild.src = 'img/number/'+boutonsList[i].id.toString()+'.png';
+            }
+            if(boutonsList[i].id == "gomme"){
+                boutonsList[i].firstElementChild.src = 'img/symbole/gomme.png'
+            }
+            if(boutonsList[i].id  == "help"){
+                boutonsList[i].firstElementChild.src = 'img/symbole/help.png'
+            }
+            if(boutonsList[i].id == "+" || boutonsList[i].id == "-" || boutonsList[i].id == "="){
+                boutonsList[i].firstElementChild.src = 'img/symbole/cadenas.png'
+            }
+        }
+        boutonEgal.disabled = true;
+        boutonPlus.disabled = true;
+        boutonMoins.disabled = true;
+    }
+    else {
+        afficher5(val);
+    };
+    
+}
+
+function afficher5(val){
+
+
+    if(resultat.innerHTML == ""){
+        resultat.innerHTML = tab[val];
+        $( "#resultat" ).append(resultat);
+  
+        boutonEgal.disabled = false;
+        boutonEgal.firstElementChild.src = 'img/symbole/egale.png';
+    }
+    else {
+    
+    };
+    
+}
+    
+
+
+
+
+
 
     function  effacer(){
     operand1.innerHTML = "";
     operand2.innerHTML = "";
     operateur.innerHTML = "";
+    resultat.innerHTML = "";
+    signeEgale.innerHTML = "";
     $( "#operand1" ).remove(operand1);
     $( "#operand2" ).remove(operand2);
     $( "#operateur" ).remove(operateur);
+    $( "#resultat" ).remove(resultat);
+    $( "#signeEgale" ).remove(signeEgale);
+    boutonPlus.disabled = true;
+    boutonMoins.disabled = true;
+    boutonEgal.disabled = true;
+    boutonPlus.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png')
+    boutonMoins.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+    boutonEgal.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png')
+    for (var i = 0;i < boutonsList.length; i++) {
+        if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help"){
+            boutonsList[i].disabled = false;
+            boutonsList[i].firstElementChild.src = 'img/number/'+boutonsList[i].id.toString()+'.png';
+        }
+    };
+}
 
+function checkOp(firstOperand, operator) {
+    console.log(operator, "================>", firstOperand);
+    if (operator == "add") {
+        for (var i = 0; i < boutonsList.length;i++) {
+            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help") {
+                console.log(parseInt(firstOperand) + parseInt(boutonsList[i].id));
+                if((parseInt(firstOperand) + parseInt(boutonsList[i].id) > 10)) {
+                    boutonsList[i].disabled = true;
+                    boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+                }
+            }
+        }
     }
+    if (operator == "sou") {
+        for (var i = 0; i < boutonsList.length;i++) {
+            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help") {
+                console.log(parseInt(firstOperand) - parseInt(boutonsList[i].id));
+                if((parseInt(firstOperand) - parseInt(boutonsList[i].id) < 0)) {
+                    boutonsList[i].disabled = true;
+                    boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+                }
+            }
+        }
+    }
+}
