@@ -43,7 +43,7 @@ function afficher(val){
         boutonPlus.firstElementChild.setAttribute('src', 'img/symbole/addition.png')
         boutonMoins.firstElementChild.setAttribute('src', 'img/symbole/soustraction.png');
         for (var i = 0;i < boutonsList.length; i++) {
-            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help"){
+            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number"){
                 boutonsList[i].disabled = true;
                 boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
             }
@@ -61,7 +61,7 @@ function afficher2(val){
         operateur.innerHTML = tab[val];
         $( "#operateur" ).append(operateur);
         for (var i = 0;i < boutonsList.length; i++) {
-            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help"){
+            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number"){
                 boutonsList[i].disabled = false;
                 boutonsList[i].firstElementChild.src = 'img/number/'+boutonsList[i].id.toString()+'.png';
             }
@@ -93,9 +93,10 @@ function afficher3(val){
                 boutonsList[i].disabled = true;
                 boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
             }
+            boutonEgal.disabled = false;
+            boutonEgal.firstElementChild.src = 'img/symbole/egale.png';
         }
-        boutonEgal.disabled = false;
-        boutonEgal.firstElementChild.src = 'img/symbole/egale.png';
+
     }
     else {
         afficher4(val);
@@ -148,11 +149,6 @@ function afficher5(val){
     };
     
 }
-    
-
-
-
-
 
 
     function  effacer(){
@@ -184,7 +180,7 @@ function checkOp(firstOperand, operator) {
     console.log(operator, "================>", firstOperand);
     if (operator == "add") {
         for (var i = 0; i < boutonsList.length;i++) {
-            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help") {
+            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number") {
                 console.log(parseInt(firstOperand) + parseInt(boutonsList[i].id));
                 if((parseInt(firstOperand) + parseInt(boutonsList[i].id) > 10)) {
                     boutonsList[i].disabled = true;
@@ -195,7 +191,7 @@ function checkOp(firstOperand, operator) {
     }
     if (operator == "sou") {
         for (var i = 0; i < boutonsList.length;i++) {
-            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help") {
+            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number") {
                 console.log(parseInt(firstOperand) - parseInt(boutonsList[i].id));
                 if((parseInt(firstOperand) - parseInt(boutonsList[i].id) < 0)) {
                     boutonsList[i].disabled = true;
@@ -205,3 +201,4 @@ function checkOp(firstOperand, operator) {
         }
     }
 }
+
