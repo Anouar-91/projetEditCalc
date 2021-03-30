@@ -121,14 +121,17 @@ function afficher4(val){
                 boutonsList[i].firstElementChild.src = 'img/symbole/help.png'
             }
             if(boutonsList[i].id == "+" || boutonsList[i].id == "-" || boutonsList[i].id == "="){
-                boutonsList[i].firstElementChild.src = 'img/symbole/cadenas.png'
+                boutonsList[i].firstElementChild.src = 'img/symbole/cadenas.png';
+                boutonsList[i].disabled = false;
             }
         }
         boutonEgal.disabled = true;
         boutonPlus.disabled = true;
         boutonMoins.disabled = true;
+
     }
     else {
+
         afficher5(val);
     };
     
@@ -138,6 +141,7 @@ function afficher5(val){
 
 
     if(resultat.innerHTML == ""){
+
         resultat.innerHTML = tab[val];
         $( "#resultat" ).append(resultat);
   
