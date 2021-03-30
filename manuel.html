@@ -8,11 +8,11 @@
 			 <!-- Lunar CSS -->
 		<link rel="stylesheet" href="ressources/lunar-css/lunar.css">
     	<link rel="stylesheet" href="ressources/lunar-css/demo.css">
-    		<!-- Fonts -->
+    		<!-- animate
     	<link rel="stylesheet" href="ressources/lunar-css/animate.min.css">
-			<!-- animate -->
+			 
 		<link rel="stylesheet"  type="text/css" href="assets/css/animate.min.css">
-		<link href='//fonts.googleapis.com/css?family=Roboto:200,400,600' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Roboto:200,400,600' rel='stylesheet' type='text/css'>-->
 		<!-- wickedcss -->
 		<link rel="stylesheet" href="ressources/css/wickedcss.min.css">
 	</head>
@@ -22,15 +22,24 @@
 			<a href="index.html"><img src="img/titre.png" class="img img-responsive" style="max-width: 100%; margin:auto;"></a>
 		</div>
 
-		<div class="container ecran" id="ecran">
+		<div class="container">
 			<div class="row">
-				<div class="col-1"></div>
-				<div class="col-2" id="operand1"></div>
-				<div class="col-2" id="operateur"></div>
-				<div class="col-2" id="operand2"></div>
-				<div class="col-2" id="signeEgale"></div>
-				<div class="col-2" id="resultat"></div>
-				<div class="col-1"></div>
+				<div class="col-11 ecran" id="ecran">
+					<div class="row">
+						<div class="col-1"></div>
+						<div class="col-2" id="operand1"></div>
+						<div class="col-2" id="operateur"></div>
+						<div class="col-2" id="operand2"></div>
+						<div class="col-2" id="signeEgale"></div>
+						<div class="col-2" id="resultat"></div>
+						<div class="col-1"></div>
+					</div>
+				</div>
+				<div class="col-1 wow bounce" data-wow-duration="2s" data-wow-delay="5">
+						<button class="button-number"  type="button" data-toggle="modal" data-target="#exampleModal" id="help"> 
+							<img src="img/symbole/help.png" alt="" class="img img-responsive" style="max-width: 100%;">
+						</button>
+				</div>
 			</div>
 		</div>
 
@@ -58,7 +67,7 @@
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number" id="=" onclick="afficher('10')">
+					<button class="button-number" id="=" onclick="afficher('11')">
 						<img src="img/symbole/cadenas.png" alt="" id="egale" class="img img-responsive number" style="max-width: 100%;" > 
 					</button>
 				</div>
@@ -107,21 +116,22 @@
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number" id="+" onclick="afficher('12')">
+					<button class="button-number" id="10" onclick="afficher('10')">
+						<img src="img/number/10.png" alt="" class="img img-responsive  number" style="max-width: 100%;">
+					</button>
+				</div>
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
+					<button class="button-number" id="+" onclick="afficher('13')">
 						<img src="img/symbole/cadenas.png" id="add" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 		
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number" id="-" onclick="afficher('13')"> 
+					<button class="button-number" id="-" onclick="afficher('14')"> 
 						<img src="img/symbole/cadenas.png" id="sous" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
-				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number"  type="button" data-toggle="modal" data-target="#exampleModal" id="help"> 
-						<img src="img/symbole/help.png" alt="" class="img img-responsive" style="max-width: 100%;">
-					</button>
-				</div>
+
 				<div class="col-1"></div>
 			</div>
 

@@ -19,18 +19,27 @@
 	<body>
 
 		<div class="container" id="titre">
-			<img src="img/titre.png" class="img img-responsive" style="max-width: 100%; margin:auto;">
+			<a href="index.html"><img src="img/titre.png" class="img img-responsive" style="max-width: 100%; margin:auto;"></a>
 		</div>
 
-		<div class="container ecran" id="ecran">
+		<div class="container">
 			<div class="row">
-				<div class="col-1"></div>
-				<div class="col-2" id="operand1"></div>
-				<div class="col-2" id="operateur"></div>
-				<div class="col-2" id="operand2"></div>
-				<div class="col-2" id="signeEgale"></div>
-				<div class="col-2" id="resultat"></div>
-				<div class="col-1"></div>
+				<div class="col-11 ecran" id="ecran">
+					<div class="row">
+						<div class="col-1"></div>
+						<div class="col-2" id="operand1"></div>
+						<div class="col-2" id="operateur"></div>
+						<div class="col-2" id="operand2"></div>
+						<div class="col-2" id="signeEgale"></div>
+						<div class="col-2" id="resultat"></div>
+						<div class="col-1"></div>
+					</div>
+				</div>
+				<div class="col-1 wow bounce" data-wow-duration="2s" data-wow-delay="5">
+						<button class="button-number"  type="button" data-toggle="modal" data-target="#exampleModal" id="help"> 
+							<img src="img/symbole/help.png" alt="" class="img img-responsive" style="max-width: 100%;">
+						</button>
+				</div>
 			</div>
 		</div>
 
@@ -58,7 +67,7 @@
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number" id="=" onclick="afficher('10')">
+					<button class="button-number" id="=" onclick="afficher('11')" disabled>
 						<img src="img/symbole/cadenas.png" alt="" id="egale" class="img img-responsive number" style="max-width: 100%;" > 
 					</button>
 				</div>
@@ -88,8 +97,8 @@
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number" id="gomme" onclick="effacer()">
-						<img src="img/symbole/gomme.png" alt="" class="img img-responsive number" style="max-width: 100%;" >
+					<button class="button-number" id="gomme" onclick="effacer()" disabled>
+						<img src="img/symbole/cadenas.png" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 				<div class="col-1"></div>
@@ -107,25 +116,68 @@
 					</button>
 				</div>
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number" id="+" onclick="afficher('12')">
+					<button class="button-number" id="10" onclick="afficher('10')">
+						<img src="img/number/10.png" alt="" class="img img-responsive  number" style="max-width: 100%;">
+					</button>
+				</div>
+				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
+					<button class="button-number" id="+" onclick="afficher('13')" disabled>
 						<img src="img/symbole/cadenas.png" id="add" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
 		
 				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number" id="-" onclick="afficher('13')"> 
+					<button class="button-number" id="-" onclick="afficher('14')" disabled> 
 						<img src="img/symbole/cadenas.png" id="sous" alt="" class="img img-responsive number" style="max-width: 100%;" >
 					</button>
 				</div>
-				<div class="col-2 wow bounce" data-wow-duration="2s" data-wow-delay="5">
-					<button class="button-number" id="help"> 
-						<img src="img/symbole/help.png" alt="" class="img img-responsive" style="max-width: 100%;">
-					</button>
-				</div>
+
 				<div class="col-1"></div>
 			</div>
 
 		</div>
+		  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Les règles</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<div class="container">
+				<div class="row">
+					<div class="text-center" style="margin: auto;">
+						<img src="img/champignon.png" class="floater" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						Le but du jeu est simple, tu dois entrer le résultat de l'opération qui s'affiche à l'écran.  <br> <br>
+						ATTENTION !! Après avoir entrer un résultat tu ne pourras pas te corriger. 
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-12">
+						<img src="img/symbole/gomme.png" alt="" class="img-regle">
+						: Elle te permettra d'effacer et recommencer en cas d'erreur <br>
+						<img src="img/symbole/cadenas.png" alt="" class="img-regle"> : Le cadenas s'affiche sur les boutons vérouillés <br>
+						<img src="img/symbole/help.png" alt="" class="img-regle"> : Appuie sur ce bouton si tu veux te rappeler les règles
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="start()">C'est compris !</button>
+		</div>
+	  </div>
+	</div>
+  </div>
 	
 		
 		

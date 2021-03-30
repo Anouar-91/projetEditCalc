@@ -12,6 +12,7 @@ let boutonMoins = document.getElementById("-");
 let boutonsList = document.getElementsByTagName('button');
 let boutonEgal = document.getElementById("=");
 let boutonPlus = document.getElementById("+");
+let boutonHelp = document.getElementById('help');
 boutonPlus.disabled = true;
 boutonMoins.disabled = true;
 boutonEgal.disabled = true;
@@ -27,6 +28,7 @@ var tab = ["<img src='img/number/0.png' class='img img-responsive' style='max-wi
 "<img src='img/number/7.png' class='img img-responsive' style='max-width: 100%; width:100px; height:100px; margin:0px'>",
 "<img src='img/number/8.png' class='img img-responsive' style='max-width: 100%; width:100px; height:100px; margin:0px'>",
 "<img src='img/number/9.png' class='img img-responsive' style='max-width: 100%; width:100px; height:100px; margin:0px'>",
+"<img src='img/number/10.png' class='img img-responsive' style='max-width: 100%; width:100px; height:100px; margin:0px'>",
 "<img src='img/symbole/egale.png' class='img img-responsive' style='max-width: 100%; width:100px; height:100px; margin:0px'>",
 "<img src='img/symbole/gomme.png' class='img img-responsive' style='max-width: 100%; width:100px; height:100px; margin:0px'>",
 "<img src='img/symbole/addition.png' class='img img-responsive' style='max-width: 100%; width:100px; height:100px; margin:0px'>",
@@ -56,7 +58,7 @@ function afficher(val){
 }
 
 function afficher2(val){
-    console.log("SAlt");
+    let op1 = "";
     if(operateur.innerHTML == ""){
         operateur.innerHTML = tab[val];
         $( "#operateur" ).append(operateur);
@@ -71,8 +73,14 @@ function afficher2(val){
         boutonEgal.disabled = true;
         boutonPlus.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png')
         boutonMoins.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
-        boutonEgal.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png')
-        checkOp(operand1.innerHTML.substr(21, 1), operateur.innerHTML.substr(22, 3));
+        boutonEgal.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+        op1 = operand1.innerHTML.substr(21,1);
+        if(operand1.innerHTML.substr(21,2) == "10"){
+            op1 = operand1.innerHTML.substr(21,2);
+        }
+        checkOp(op1, operateur.innerHTML.substr(22, 3));
+        
+       
     }
     else {
         afficher3(val);
@@ -89,12 +97,15 @@ function afficher3(val){
         operand2.innerHTML = tab[val];
         $( "#operand2" ).append(operand2);
         for (var i = 0;i < boutonsList.length; i++) {
-            if (boutonsList[i].id != "="){
+            if (boutonsList[i].id != "=" || boutonsList[i].id != "help" ){
                 boutonsList[i].disabled = true;
                 boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
             }
             boutonEgal.disabled = false;
             boutonEgal.firstElementChild.src = 'img/symbole/egale.png';
+            boutonHelp.disabled = false;
+            boutonHelp.firstElementChild.src = 'img/symbole/help.png';
+
         }
 
     }
@@ -107,7 +118,7 @@ function afficher4(val){
 
 
     if(signeEgale.innerHTML == ""){
-        signeEgale.innerHTML = tab[10];
+        signeEgale.innerHTML = tab[11];
         $( "#signeEgale" ).append(signeEgale);
         for (var i = 0;i < boutonsList.length; i++) {
             if (boutonsList[i].id != "="){
@@ -122,12 +133,10 @@ function afficher4(val){
             }
             if(boutonsList[i].id == "+" || boutonsList[i].id == "-" || boutonsList[i].id == "="){
                 boutonsList[i].firstElementChild.src = 'img/symbole/cadenas.png';
-                boutonsList[i].disabled = false;
+                boutonsList[i].disabled = true;
             }
         }
-        boutonEgal.disabled = true;
-        boutonPlus.disabled = true;
-        boutonMoins.disabled = true;
+
 
     }
     else {
@@ -193,7 +202,7 @@ function checkOp(firstOperand, operator) {
             }
         }
     }
-    if (operator == "sou") {
+    if (operator == "sous") {
         for (var i = 0; i < boutonsList.length;i++) {
             if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number") {
                 console.log(parseInt(firstOperand) - parseInt(boutonsList[i].id));
