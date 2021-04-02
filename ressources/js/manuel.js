@@ -102,17 +102,16 @@ function afficher3(val){
             boutonEgal.firstElementChild.src = 'img/symbole/egale.png';
             boutonHelp.disabled = false;
             boutonHelp.firstElementChild.src = 'img/symbole/help.png';
-
         }
-
     }
     else {
         afficher4(val);
-    };
-    
+    };   
 }
-function afficher4(val){
 
+
+
+function afficher4(val){
 
     if(signeEgale.innerHTML == ""){
         signeEgale.innerHTML = tab[11];
@@ -133,19 +132,14 @@ function afficher4(val){
                 boutonsList[i].disabled = true;
             }
         }
-
-
     }
     else {
 
         afficher5(val);
     };
-    
 }
 
 function afficher5(val){
-
-
     if(resultat.innerHTML == ""){
 
         resultat.innerHTML = tab[val];
@@ -153,6 +147,11 @@ function afficher5(val){
   
         boutonEgal.disabled = false;
         boutonEgal.firstElementChild.src = 'img/symbole/egale.png';
+        setTimeout(function() {
+            var menu = document.getElementById('enTete');
+            menu.click();
+        
+        }, 5000);
     }
     else {
     
@@ -199,7 +198,7 @@ function checkOp(firstOperand, operator) {
             }
         }
     }
-    if (operator == "sous") {
+    if (operator == "sou") {
         for (var i = 0; i < boutonsList.length;i++) {
             if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number") {
                 console.log(parseInt(firstOperand) - parseInt(boutonsList[i].id));
