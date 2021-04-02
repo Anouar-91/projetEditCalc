@@ -17,6 +17,8 @@ boutonPlus.disabled = true;
 boutonMoins.disabled = true;
 boutonEgal.disabled = true;
 
+
+
 // tableau des images 
 var tab = ["<img src='img/number/0.png' class='img img-responsive' style='max-width: 100%; width:100px; height:100px; margin:0px'>", 
 "<img src='img/number/1.png' class='img img-responsive' style='max-width: 100%; width:100px; height:100px; margin:0px'>",
@@ -45,7 +47,7 @@ function afficher(val){
         boutonPlus.firstElementChild.setAttribute('src', 'img/symbole/addition.png')
         boutonMoins.firstElementChild.setAttribute('src', 'img/symbole/soustraction.png');
         for (var i = 0;i < boutonsList.length; i++) {
-            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number"){
+            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" &&      boutonsList[i].className === "button-number"){
                 boutonsList[i].disabled = true;
                 boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
             }
@@ -53,8 +55,7 @@ function afficher(val){
     }
     else {
         afficher2(val);
-    }
-    
+    }  
 }
 
 function afficher2(val){
@@ -79,14 +80,10 @@ function afficher2(val){
             op1 = operand1.innerHTML.substr(21,2);
         }
         checkOp(op1, operateur.innerHTML.substr(22, 3));
-        
-       
     }
     else {
         afficher3(val);
-    }
-    
-    
+    } 
 }
 
 
