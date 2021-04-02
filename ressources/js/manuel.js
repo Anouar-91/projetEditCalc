@@ -198,6 +198,7 @@ function checkOp(firstOperand, operator) {
             }
         }
     }
+
     if (operator == "sou") {
         for (var i = 0; i < boutonsList.length;i++) {
             if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number") {

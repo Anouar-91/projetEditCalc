@@ -81,6 +81,11 @@ function afficher(val){
     if(resultat.innerHTML == ""){    
         resultat.innerHTML = tab[val];
         $( "#resultat" ).append(resultat);
+        setTimeout(function() {
+            var menu = document.getElementById('enTete');
+            menu.click();
+        
+        }, 5000);
     }
     else {
         return false;
