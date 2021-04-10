@@ -24,6 +24,11 @@ class Fenetre {
         return this.calcul;
     }
 
+    affiche(idOp, indexImg) {
+        console.log(document.getElementById(idOp.toString()).id);
+        //$( "#operand1" ).append(affichage);
+        //affichage.innerHTML = tab[indexImg];
+    }
 }
 
 class Bouton {
@@ -33,22 +38,27 @@ class Bouton {
         this.imageValue = imageValue
     }
 
-    static createCalcul(value) {
+    static createCalcul(value, img) {
         if (calculette.getFenetre().getCalcul().getOperande1() == "") {
             calculette.getFenetre().getCalcul().setOperande1(value);
-            console.log(calculette.getFenetre().getCalcul().getOperande1());
+            calculette.getFenetre().affiche("operande1", img);
         }
         else if (calculette.getFenetre().getCalcul().getOperateur() == "") {
             calculette.getFenetre().getCalcul().setOperateur(value);
             calculette.getFenetre().getCalcul().checkOp(calculette.getFenetre().getCalcul().getOperande1(), value)
+            console.log(calculette.getFenetre().getCalcul().getOperateur());
+            calculette.getFenetre().affiche("operateur", img);
         }
         else if (calculette.getFenetre().getCalcul().getOperande2() == "") {
             calculette.getFenetre().getCalcul().setOperande2(value)
+            calculette.getFenetre().affiche("operande2", img);
         }
         else if (calculette.getFenetre().getCalcul().getOperateurEgal() == "") {
             calculette.getFenetre().getCalcul().setOperateurEgal(value);
+            calculette.getFenetre().affiche("signeEgal", img);
         } else {
-            calculette.getFenetre().getCalcul().setRes(value);   
+            calculette.getFenetre().getCalcul().setRes(value);
+            calculette.getFenetre().affiche("resultat", img);   
         }
     }
 
