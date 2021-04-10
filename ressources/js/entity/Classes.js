@@ -27,8 +27,28 @@ class Fenetre {
     affiche(id, indexImg) {
         console.log(id);
         let variable = document.getElementById(id);
-        operand1.innerHTML = tab[indexImg];
-        variable.append(operand1);
+        if(etape == "operand1"){
+            operand1.innerHTML = tab[indexImg];
+            variable.append(operand1);
+        }
+        else if(etape=="operateur"){
+            operateur.innerHTML = tab[indexImg];
+            variable.append(operateur);
+        }
+
+    }
+
+    verouillageNumber(){
+        boutonPlus.disabled = false;
+        boutonMoins.disabled = false;
+        boutonPlus.firstElementChild.setAttribute('src', 'img/symbole/addition.png')
+        boutonMoins.firstElementChild.setAttribute('src', 'img/symbole/soustraction.png');
+        for (var i = 0;i < boutonsList.length; i++) {
+            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" &&      boutonsList[i].className === "button-number"){
+                boutonsList[i].disabled = true;
+                boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+            }
+        }
     }
 }
 
@@ -40,14 +60,16 @@ class Bouton {
     }
 
     static createCalcul(value, img) {
-        if (calculette.getFenetre().getCalcul().getOperande1() == "") {
+        if (calculette.getFenetre().getCalcul().getOperande1() == "" && etape =="operand1") {
             calculette.getFenetre().getCalcul().setOperande1(value);
             calculette.getFenetre().affiche("operand1", img);
+            calculette.getFenetre().verouillageNumber();
+            etape = "operateur";
         }
-        else if (calculette.getFenetre().getCalcul().getOperateur() == "") {
+        else if (calculette.getFenetre().getCalcul().getOperateur() == "" && etape == "operateur") {
             calculette.getFenetre().getCalcul().setOperateur(value);
-            calculette.getFenetre().getCalcul().checkOp(calculette.getFenetre().getCalcul().getOperande1(), value)
-            console.log(calculette.getFenetre().getCalcul().getOperateur());
+            calculette.getFenetre().getCalcul().checkOp(calculette.getFenetre().getCalcul().getOperande1(), value);
+            console.log(calculette.getFenetre().getCalcul().getOperande1(), value);
             calculette.getFenetre().affiche("operateur", img);
         }
         else if (calculette.getFenetre().getCalcul().getOperande2() == "") {
@@ -119,8 +141,8 @@ class Calcul {
         this.operande2 = operande2;
     }
 
-    setOperateurEgal(operateurEGal) {
-        this.operateurEgal = this.operateurEgal;
+    setOperateurEgal(operateurEgal) {
+        this.operateurEgal = operateurEgal;
     }
 
     setRes(res) {
@@ -131,9 +153,9 @@ class Calcul {
         if (operator == "+") {
             for (var i = 0; i < boutonsList.length;i++) {
                 if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number") {
-                    if((parseInt(firstOperand) + parseInt(boutonsList[i].id) > 10)) {
+                    if((parseInt(firstOperand) + parseInt(boutonsList[i].id) < 10)) {
                         boutonsList[i].disabled = true;
-                        boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+                        boutonsList[i].firstElementChild.setAttribute('src', '/img/symbole/cadenas.png');
                     }
                 }
             }
@@ -144,7 +166,7 @@ class Calcul {
                 if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number") {
                     if((parseInt(firstOperand) - parseInt(boutonsList[i].id) < 0)) {
                         boutonsList[i].disabled = true;
-                        boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+                        boutonsList[i].firstElementChild.setAttribute('src', '/img/symbole/cadenas.png');
                     }
                 }
             }

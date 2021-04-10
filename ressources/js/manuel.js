@@ -21,19 +21,14 @@
     var list = Object.values(calculette.getListBoutons());
 
     let operand1 = document.createElement('span');
-    operand1.setAttribute('id', 'operandUn');
     operand1.innerHTML = "";
     let operand2 = document.createElement('span');
-    operand2.setAttribute('id', 'operandDeux');
     operand2.innerHTML = "";
     let operateur = document.createElement('span');
-    operateur.setAttribute('id', 'operateur2');
     operateur.innerHTML = "";
     let signeEgale = document.createElement('span');
-    signeEgale.setAttribute('id', 'signeEgal2');
     signeEgale.innerHTML = "";
     let resultat = document.createElement('span');
-    resultat.setAttribute('id', 'resultat2');
     resultat.innerHTML = "";
     let boutonMoins = document.getElementById("-");
     let boutonsList = document.getElementsByTagName('button');
@@ -64,11 +59,16 @@
     "<img src='img/symbole/help.png' class='img img-responsive' style='max-width: 100%; width:100px; height:100px; margin:0px'>",
                 ];
 
+    //etape
+    let etape = "operand1";
+
     function afficher(val){
-        for (i = 0; i < 16; i++) {
-            if(Object.values(list[i])[0] == val)
-                Bouton.createCalcul(val, Object.values(list[i])[2]);
+            for (i = 0; i < 16; i++) {
+                if(Object.values(list[i])[0] == val)
+                    Bouton.createCalcul(val, Object.values(list[i])[2]);
         }
+
+
         /*
         if(operand1.innerHTML == ""){    
             operand1.innerHTML = tab[val];
