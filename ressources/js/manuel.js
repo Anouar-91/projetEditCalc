@@ -21,19 +21,19 @@
     var list = Object.values(calculette.getListBoutons());
 
     let operand1 = document.createElement('span');
-    operand1.setAttribute('id', 'operande1');
+    operand1.setAttribute('id', 'operandUn');
     operand1.innerHTML = "";
     let operand2 = document.createElement('span');
-    operand2.setAttribute('id', 'operande2');
+    operand2.setAttribute('id', 'operandDeux');
     operand2.innerHTML = "";
     let operateur = document.createElement('span');
-    operateur.setAttribute('id', 'operateur');
+    operateur.setAttribute('id', 'operateur2');
     operateur.innerHTML = "";
     let signeEgale = document.createElement('span');
-    signeEgale.setAttribute('id', 'signeEgal');
+    signeEgale.setAttribute('id', 'signeEgal2');
     signeEgale.innerHTML = "";
     let resultat = document.createElement('span');
-    resultat.setAttribute('id', 'resultat');
+    resultat.setAttribute('id', 'resultat2');
     resultat.innerHTML = "";
     let boutonMoins = document.getElementById("-");
     let boutonsList = document.getElementsByTagName('button');
@@ -215,5 +215,4 @@
             }
         };
     }*/
-
     }

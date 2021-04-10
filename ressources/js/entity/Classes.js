@@ -24,10 +24,11 @@ class Fenetre {
         return this.calcul;
     }
 
-    affiche(idOp, indexImg) {
-        console.log(document.getElementById(idOp.toString()).id);
-        //$( "#operand1" ).append(affichage);
-        //affichage.innerHTML = tab[indexImg];
+    affiche(id, indexImg) {
+        console.log(id);
+        let variable = document.getElementById(id);
+        operand1.innerHTML = tab[indexImg];
+        variable.append(operand1);
     }
 }
 
@@ -41,7 +42,7 @@ class Bouton {
     static createCalcul(value, img) {
         if (calculette.getFenetre().getCalcul().getOperande1() == "") {
             calculette.getFenetre().getCalcul().setOperande1(value);
-            calculette.getFenetre().affiche("operande1", img);
+            calculette.getFenetre().affiche("operand1", img);
         }
         else if (calculette.getFenetre().getCalcul().getOperateur() == "") {
             calculette.getFenetre().getCalcul().setOperateur(value);
