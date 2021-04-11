@@ -20,6 +20,7 @@ class Fenetre {
         this.calcul = new Calcul();
     }
 
+
     getCalcul() {
         return this.calcul;
     }
@@ -35,6 +36,15 @@ class Fenetre {
             operateur.innerHTML = tab[indexImg];
             variable.append(operateur);
         }
+        else if(etape=="operand2"){
+            operand2.innerHTML = tab[indexImg];
+            variable.append(operand2);
+        }
+        else if(etape=="signeEgale"){
+            signeEgale.innerHTML = tab[11];
+            variable.append(signeEgale);
+        }
+        
 
     }
 
@@ -50,6 +60,44 @@ class Fenetre {
             }
         }
     }
+
+    verrouillageNumber2(){
+        for (var i = 0;i < boutonsList.length; i++) {
+            if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number"){
+                boutonsList[i].disabled = false;
+                boutonsList[i].firstElementChild.src = 'img/number/'+boutonsList[i].id.toString()+'.png';
+            }
+        };
+        boutonPlus.disabled = true;
+        boutonMoins.disabled = true;
+        boutonEgal.disabled = true;
+        boutonPlus.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png')
+        boutonMoins.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+        boutonEgal.firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+        let op1 = operand1.innerHTML.substr(21,1);
+        console.log(op1);
+        console.log(operateur.innerHTML.substr(22, 3));
+        if(operand1.innerHTML.substr(21,2) == "10"){
+            op1 = operand1.innerHTML.substr(21,2);
+        }
+        calculette.getFenetre().getCalcul().checkOp(op1, operateur.innerHTML.substr(22, 3));
+    }
+
+    verrouillageNumber3(){
+        for (var i = 0;i < boutonsList.length; i++) {
+            if (boutonsList[i].id != "=" || boutonsList[i].id != "help" && boutonsList[i].className === "button-number" ){
+                boutonsList[i].disabled = true;
+                boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
+            }
+            boutonEgal.disabled = false;
+            boutonEgal.firstElementChild.src = 'img/symbole/egale.png';
+            boutonHelp.disabled = false;
+            boutonHelp.firstElementChild.src = 'img/symbole/help.png';
+        }
+    
+    }
+
+
 }
 
 class Bouton {
@@ -68,20 +116,32 @@ class Bouton {
         }
         else if (calculette.getFenetre().getCalcul().getOperateur() == "" && etape == "operateur") {
             calculette.getFenetre().getCalcul().setOperateur(value);
-            calculette.getFenetre().getCalcul().checkOp(calculette.getFenetre().getCalcul().getOperande1(), value);
             console.log(calculette.getFenetre().getCalcul().getOperande1(), value);
             calculette.getFenetre().affiche("operateur", img);
+            calculette.getFenetre().verrouillageNumber2();
+            etape="operand2";
+            
         }
-        else if (calculette.getFenetre().getCalcul().getOperande2() == "") {
+        else if (calculette.getFenetre().getCalcul().getOperande2() == "" && etape=="operand2") {
             calculette.getFenetre().getCalcul().setOperande2(value)
-            calculette.getFenetre().affiche("operande2", img);
+            calculette.getFenetre().affiche("operand2", img);
+            calculette.getFenetre().verrouillageNumber3();
+            etape = "signeEgale";
         }
-        else if (calculette.getFenetre().getCalcul().getOperateurEgal() == "") {
+        
+        else if (calculette.getFenetre().getCalcul().getOperateurEgal() == "" && etape == "signeEgale" ) {
+            
             calculette.getFenetre().getCalcul().setOperateurEgal(value);
-            calculette.getFenetre().affiche("signeEgal", img);
-        } else {
+            calculette.getFenetre().affiche("signeEgale", img);
+            calculette.getFenetre().verrouillageNumber4();
+            etape = "resultat";
+        } 
+        else if (calculette.getFenetre().getCalcul().getRes() == "" && etape == "resultat" ){
             calculette.getFenetre().getCalcul().setRes(value);
             calculette.getFenetre().affiche("resultat", img);   
+        }
+        else{
+            return false;
         }
     }
 
@@ -150,23 +210,23 @@ class Calcul {
     }
 
     checkOp(firstOperand, operator) {
-        if (operator == "+") {
+        if (operator == "add") {
             for (var i = 0; i < boutonsList.length;i++) {
                 if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number") {
-                    if((parseInt(firstOperand) + parseInt(boutonsList[i].id) < 10)) {
+                    if((parseInt(firstOperand) + parseInt(boutonsList[i].id) > 10)) {
                         boutonsList[i].disabled = true;
-                        boutonsList[i].firstElementChild.setAttribute('src', '/img/symbole/cadenas.png');
+                        boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
                     }
                 }
             }
         }
     
-        if (operator == "-") {
+        if (operator == "sou") {
             for (var i = 0; i < boutonsList.length;i++) {
                 if (boutonsList[i].id != "+" && boutonsList[i].id != "-" && boutonsList[i].id != "=" && boutonsList[i].id != "gomme" && boutonsList[i].id != "help" && boutonsList[i].className === "button-number") {
                     if((parseInt(firstOperand) - parseInt(boutonsList[i].id) < 0)) {
                         boutonsList[i].disabled = true;
-                        boutonsList[i].firstElementChild.setAttribute('src', '/img/symbole/cadenas.png');
+                        boutonsList[i].firstElementChild.setAttribute('src', 'img/symbole/cadenas.png');
                     }
                 }
             }

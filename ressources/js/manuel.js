@@ -10,12 +10,12 @@
     let bouton8 = new Bouton('8', 'operande', '8');
     let bouton9 = new Bouton('9', 'operande', '9');
     let bouton10 = new Bouton('10', 'operande', '10');
+    let boutonEgl = new Bouton('=', 'operateur', '11');
+    let boutonEfface = new Bouton('erase', 'autre', '12');
     let boutonPls = new Bouton('+', 'operateur', '13');
     let boutonMns = new Bouton('-', 'operateur', '14');
-    let boutonEgl = new Bouton('=', 'operateur', '11');
     let boutonAide = new Bouton('help', 'autre', '15');
-    let boutonEfface = new Bouton('erase', 'autre', '12');
-    let listBoutons = [bouton0, bouton1, bouton2, bouton3, bouton4, bouton5, bouton6, bouton7, bouton8, bouton9, bouton10, boutonPls, boutonMns, boutonEgl, boutonAide, boutonEfface];
+    let listBoutons = [bouton0, bouton1, bouton2, bouton3, bouton4, bouton5, bouton6, bouton7, bouton8, bouton9, bouton10, boutonEgl, boutonEfface, boutonPls, boutonMns, boutonAide, ];
     let calculette = new Calculette(listBoutons);
     //Recuperation de la list des attribts de chaque boutons dans une liste, faire un console.log de list pour comprendre
     var list = Object.values(calculette.getListBoutons());
